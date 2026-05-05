@@ -3,8 +3,8 @@ import * as cheerio from "cheerio";
 import dayjs from "dayjs";
 
 export async function getReadings(date = dayjs()) {
-  const formattedDate = date.format("YYYY-MM-DD");
-  const url = `https://evangeliodeldia.org/${formattedDate}/`;
+  const formattedDate = date.format("D-M-YYYY"); // 👈 formato clave
+  const url = `https://www.dominicos.org/predicacion/evangelio-del-dia/${formattedDate}/`;
 
   try {
     const { data } = await axios.get(url, {
@@ -16,45 +16,50 @@ export async function getReadings(date = dayjs()) {
     const $ = cheerio.load(data);
 
     const result = {
-      date: formattedDate,
+      date: date.format("YYYY-MM-DD"),
       title: $("h1").first().text().trim(),
       readings: []
     };
 
-    // 🔥 Buscar todo el contenido principal
-    const content = $("article, .post, .entry-content").text();
+    let currentSection = null;
+    let buffer = "";
 
-    // 📖 Primera lectura
-    const firstReadingMatch = content.match(/Primera lectura([\s\S]*?)Salmo/i);
+    $("h2, h3, p").each((i, el) => {
+      const tag = el.tagName;
+      const text = $(el).text().trim();
 
-    if (firstReadingMatch) {
-      result.readings.push({
-        type: "first_reading",
-        title: "Primera lectura",
-        text: cleanText(firstReadingMatch[1])
-      });
-    }
+      if (!text) return;
 
-    // 🎵 Salmo
-    const psalmMatch = content.match(/Salmo([\s\S]*?)Evangelio/i);
+      // Detectar secciones
+      if (tag === "h2") {
+        if (buffer && currentSection) {
+          pushReading(result, currentSection, buffer);
+        }
 
-    if (psalmMatch) {
-      result.readings.push({
-        type: "psalm",
-        title: "Salmo responsorial",
-        text: cleanText(psalmMatch[1])
-      });
-    }
+        buffer = "";
 
-    // ✝️ Evangelio
-    const gospelMatch = content.match(/Evangelio([\s\S]*)/i);
+        if (text.toLowerCase().includes("primera lectura")) {
+          currentSection = "first_reading";
+        } else if (text.toLowerCase().includes("salmo")) {
+          currentSection = "psalm";
+        } else if (text.toLowerCase().includes("evangelio")) {
+          currentSection = "gospel";
+        } else {
+          currentSection = null;
+        }
 
-    if (gospelMatch) {
-      result.readings.push({
-        type: "gospel",
-        title: "Evangelio",
-        text: cleanText(gospelMatch[1])
-      });
+        return;
+      }
+
+      // Acumular contenido
+      if (currentSection) {
+        buffer += " " + text;
+      }
+    });
+
+    // último bloque
+    if (buffer && currentSection) {
+      pushReading(result, currentSection, buffer);
     }
 
     return result;
@@ -65,9 +70,22 @@ export async function getReadings(date = dayjs()) {
   }
 }
 
+function pushReading(result, type, text) {
+  const titles = {
+    first_reading: "Primera lectura",
+    psalm: "Salmo responsorial",
+    gospel: "Evangelio"
+  };
+
+  result.readings.push({
+    type,
+    title: titles[type],
+    text: cleanText(text)
+  });
+}
+
 function cleanText(text) {
   return text
     .replace(/\s+/g, " ")
-    .replace(/\n/g, " ")
     .trim();
 }
