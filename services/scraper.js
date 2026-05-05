@@ -42,7 +42,7 @@ export async function getReadings(date = dayjs()) {
           currentSection = "first_reading";
         } else if (text.toLowerCase().includes("salmo")) {
           currentSection = "psalm";
-        } else if (text.toLowerCase().includes("evangelio")) {
+        } else if (text.toLowerCase().includes("evangelio del")) {
           currentSection = "gospel";
         } else {
           currentSection = null;
