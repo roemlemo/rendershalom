@@ -1,0 +1,35 @@
+import express from "express";
+import dayjs from "dayjs";
+import { getReadings } from "./services/scraper.js";
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Endpoint: hoy
+app.get("/readings/today", async (req, res) => {
+  try {
+    const data = await getReadings(dayjs());
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Endpoint: por fecha
+app.get("/readings/:date", async (req, res) => {
+  try {
+    const date = dayjs(req.params.date);
+    const data = await getReadings(date);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send("Catholic API running 🚀");
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
+});
