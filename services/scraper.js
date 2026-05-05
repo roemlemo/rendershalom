@@ -21,34 +21,41 @@ export async function getReadings(date = dayjs()) {
       readings: []
     };
 
-    $("h2, h3").each((i, el) => {
-      const title = $(el).text().toLowerCase();
-      const content = $(el).nextUntil("h2, h3").text().trim();
+    // 🔥 Buscar todo el contenido principal
+    const content = $("article, .post, .entry-content").text();
 
-      if (title.includes("primera lectura")) {
-        result.readings.push({
-          type: "first_reading",
-          title: "Primera lectura",
-          text: cleanText(content)
-        });
-      }
+    // 📖 Primera lectura
+    const firstReadingMatch = content.match(/Primera lectura([\s\S]*?)Salmo/i);
 
-      if (title.includes("salmo")) {
-        result.readings.push({
-          type: "psalm",
-          title: "Salmo responsorial",
-          text: cleanText(content)
-        });
-      }
+    if (firstReadingMatch) {
+      result.readings.push({
+        type: "first_reading",
+        title: "Primera lectura",
+        text: cleanText(firstReadingMatch[1])
+      });
+    }
 
-      if (title.includes("evangelio")) {
-        result.readings.push({
-          type: "gospel",
-          title: "Evangelio",
-          text: cleanText(content)
-        });
-      }
-    });
+    // 🎵 Salmo
+    const psalmMatch = content.match(/Salmo([\s\S]*?)Evangelio/i);
+
+    if (psalmMatch) {
+      result.readings.push({
+        type: "psalm",
+        title: "Salmo responsorial",
+        text: cleanText(psalmMatch[1])
+      });
+    }
+
+    // ✝️ Evangelio
+    const gospelMatch = content.match(/Evangelio([\s\S]*)/i);
+
+    if (gospelMatch) {
+      result.readings.push({
+        type: "gospel",
+        title: "Evangelio",
+        text: cleanText(gospelMatch[1])
+      });
+    }
 
     return result;
 
