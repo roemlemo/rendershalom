@@ -24,7 +24,13 @@ export async function getReadings(date = dayjs()) {
     let currentSection = null;
     let buffer = "";
 
-    $("h2, h3, p").each((i, el) => {
+    const $content = $("contenido-dia")
+
+    $content("div").each((i, el) => {
+      el.remove();
+    });
+
+    $content("h2, h3, p").each((i, el) => {
       const tag = el.tagName;
       const text = $(el).text().trim();
 
