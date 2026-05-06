@@ -23,6 +23,7 @@ export async function getReadings(date = dayjs()) {
 
     let currentSection = null;
     let buffer = "";
+    let currentTitle = "";
 
     const $content = $(".contenido-dia");
 
