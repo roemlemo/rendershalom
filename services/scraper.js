@@ -87,7 +87,7 @@ export async function getReadings(date = dayjs()) {
 
       // Acumular contenido
       if (currentSection) {
-        buffer += " " + text;
+        buffer += "\n\n" + text;
       }
     });
 
@@ -116,6 +116,7 @@ function pushReading(result, type, reference, title, resp, text) {
 
 function cleanText(text) {
   return text
-    .replace(/\s+/g, " ")
+    .replace(/\r/g, "")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
