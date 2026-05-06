@@ -1,0 +1,75 @@
+export const bibleBooks = [
+  // Pentateuco
+  { name: "Génesis", abbr: "Gn" },
+  { name: "Éxodo", abbr: "Ex" },
+  { name: "Levítico", abbr: "Lv" },
+  { name: "Números", abbr: "Nm" },
+  { name: "Deuteronomio", abbr: "Dt" },
+
+  // Históricos
+  { name: "Josué", abbr: "Jos" },
+  { name: "Jueces", abbr: "Jue" },
+  { name: "Rut", abbr: "Rt" },
+  { name: "Samuel", abbr: "Sam" },
+  { name: "Reyes", abbr: "Re" },
+  { name: "Crónicas", abbr: "Cr" },
+  { name: "Esdras", abbr: "Esd" },
+  { name: "Nehemías", abbr: "Neh" },
+  { name: "Tobías", abbr: "Tb" },
+  { name: "Judit", abbr: "Jdt" },
+  { name: "Ester", abbr: "Est" },
+  { name: "Macabeos", abbr: "Mac" },
+
+  // Sapienciales
+  { name: "Job", abbr: "Job" },
+  { name: "Salmo", abbr: "Sal" },
+  { name: "Proverbios", abbr: "Prov" },
+  { name: "Eclesiastés", abbr: "Ecl" },
+  { name: "Cantar", abbr: "Cant" },
+  { name: "Sabiduría", abbr: "Sab" },
+  { name: "Sirácida", abbr: "Sir" },
+
+  // Profetas
+  { name: "Isaías", abbr: "Is" },
+  { name: "Jeremías", abbr: "Jer" },
+  { name: "Lamentaciones", abbr: "Lam" },
+  { name: "Baruc", abbr: "Bar" },
+  { name: "Ezequiel", abbr: "Ez" },
+  { name: "Daniel", abbr: "Dn" },
+  { name: "Oseas", abbr: "Os" },
+  { name: "Joel", abbr: "Jl" },
+  { name: "Amós", abbr: "Am" },
+  { name: "Abdías", abbr: "Abd" },
+  { name: "Jonás", abbr: "Jon" },
+  { name: "Miqueas", abbr: "Miq" },
+  { name: "Nahúm", abbr: "Nah" },
+  { name: "Habacuc", abbr: "Hab" },
+  { name: "Sofonías", abbr: "Sof" },
+  { name: "Ageo", abbr: "Ag" },
+  { name: "Zacarías", abbr: "Zac" },
+  { name: "Malaquías", abbr: "Mal" },
+
+  // Evangelios
+  { name: "Mateo", abbr: "Mt" },
+  { name: "Marcos", abbr: "Mc" },
+  { name: "Lucas", abbr: "Lc" },
+  { name: "Juan", abbr: "Jn" },
+
+  // NT
+  { name: "Hechos", abbr: "Hch" },
+  { name: "Romanos", abbr: "Rom" },
+  { name: "Corintios", abbr: "Cor" },
+  { name: "Gálatas", abbr: "Gal" },
+  { name: "Efesios", abbr: "Ef" },
+  { name: "Filipenses", abbr: "Flp" },
+  { name: "Colosenses", abbr: "Col" },
+  { name: "Tesalonicenses", abbr: "Tes" },
+  { name: "Timoteo", abbr: "Tim" },
+  { name: "Tito", abbr: "Tit" },
+  { name: "Filemón", abbr: "Flm" },
+  { name: "Hebreos", abbr: "Heb" },
+  { name: "Santiago", abbr: "Sant" },
+  { name: "Pedro", abbr: "Pe" },
+  { name: "Judas", abbr: "Jud" },
+  { name: "Apocalipsis", abbr: "Ap" }
+];

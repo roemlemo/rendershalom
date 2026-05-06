@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 import dayjs from "dayjs";
+import { buildReference } from "../utils/getBookAbbreviation.js"; 
 
 export async function getReadings(date = dayjs()) {
   const formattedDate = date.format("D-M-YYYY"); // 👈 formato clave
@@ -24,13 +25,15 @@ export async function getReadings(date = dayjs()) {
     let currentSection = null;
     let buffer = "";
     let currentTitle = "";
+    let currentReference = null;
+    let currentResp = null;
 
     const $content = $(".contenido-dia");
 
     // eliminar divs no deseados
     $content.find("div").remove();
 
-    $content.find("h2, h3, p").each((i, el) => {
+    $content.find("h2, p").each((i, el) => {
       const tag = el.tagName;
       const text = $(el).text().trim();
 
@@ -39,11 +42,13 @@ export async function getReadings(date = dayjs()) {
       // Detectar secciones
       if (tag === "h2") {
         if (buffer && currentSection) {
-          pushReading(result, currentSection, currentTitle, buffer);
+          pushReading(result, currentSection, currentReference, currentTitle, currentResp, buffer);
         }
 
         buffer = "";
         currentTitle = "";
+        currentReference = null;
+        currentResp = null;
 
         if (text.toLowerCase().includes("primera lectura")) {
           currentSection = "first_reading";
@@ -55,12 +60,25 @@ export async function getReadings(date = dayjs()) {
           currentSection = null;
         }
 
-        // 🔥 obtener h3 siguiente
+        // Obtener h3 siguiente
         if (currentSection) {
           const nextH3 = $(el).nextAll("h3").first();
 
           if (nextH3.length) {
-            currentTitle = nextH3.text().trim();
+            const trimmedText = nextH3.text().trim();
+            let resp = null;
+            if (currentSection === "psalm") {
+              const array = trimmedText.split("R/.");
+              currentTitle = array[0].trim();
+              if (array.length > 1) {
+                resp = array[1].trim();
+              }
+            } else {
+              currentTitle = trimmedText;
+            }
+            
+            currentReference = buildReference(currentTitle);
+            currentResp = resp;
           }
         }
 
@@ -75,7 +93,7 @@ export async function getReadings(date = dayjs()) {
 
     // último bloque
     if (buffer && currentSection) {
-      pushReading(result, currentSection, buffer);
+      pushReading(result, currentSection, currentReference, currentTitle, currentResp, buffer);
     }
 
     return result;
@@ -86,10 +104,12 @@ export async function getReadings(date = dayjs()) {
   }
 }
 
-function pushReading(result, type, title, text) {
+function pushReading(result, type, reference, title, resp, text) {
   result.readings.push({
     type,
+    reference: reference,
     title: title,
+    resp: resp,
     text: cleanText(text)
   });
 }
