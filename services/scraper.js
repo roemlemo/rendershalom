@@ -38,10 +38,11 @@ export async function getReadings(date = dayjs()) {
       // Detectar secciones
       if (tag === "h2") {
         if (buffer && currentSection) {
-          pushReading(result, currentSection, buffer);
+          pushReading(result, currentSection, currentTitle, buffer);
         }
 
         buffer = "";
+        currentTitle = "";
 
         if (text.toLowerCase().includes("primera lectura")) {
           currentSection = "first_reading";
@@ -51,6 +52,15 @@ export async function getReadings(date = dayjs()) {
           currentSection = "gospel";
         } else {
           currentSection = null;
+        }
+
+        // 🔥 obtener h3 siguiente
+        if (currentSection) {
+          const nextH3 = $(el).nextAll("h3").first();
+
+          if (nextH3.length) {
+            currentTitle = nextH3.text().trim();
+          }
         }
 
         return;
@@ -75,16 +85,10 @@ export async function getReadings(date = dayjs()) {
   }
 }
 
-function pushReading(result, type, text) {
-  const titles = {
-    first_reading: "Primera lectura",
-    psalm: "Salmo responsorial",
-    gospel: "Evangelio"
-  };
-
+function pushReading(result, type, title, text) {
   result.readings.push({
     type,
-    title: titles[type],
+    title: title,
     text: cleanText(text)
   });
 }
