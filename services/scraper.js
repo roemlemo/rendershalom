@@ -1,9 +1,10 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
 import dayjs from "dayjs";
+import { formatSpanishDate, mexicoNow } from "../utils/date.js";
 import { buildReference } from "../utils/getBookAbbreviation.js"; 
 
-export async function getReadings(date = dayjs()) {
+export async function getReadings(date = mexicoNow()) {
   const formattedDate = date.format("D-M-YYYY"); // 👈 formato clave
   const url = `https://www.dominicos.org/predicacion/evangelio-del-dia/${formattedDate}/`;
 
@@ -17,7 +18,7 @@ export async function getReadings(date = dayjs()) {
     const $ = cheerio.load(data);
 
     const result = {
-      date: date.format("YYYY-MM-DD"),
+      date: formatSpanishDate(date),
       title: $("h1").first().text().trim(),
       readings: []
     };
