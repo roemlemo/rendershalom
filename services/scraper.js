@@ -4,7 +4,20 @@ import dayjs from "dayjs";
 import { formatSpanishDate, mexicoNow } from "../utils/date.js";
 import { buildReference } from "../utils/getBookAbbreviation.js"; 
 
+async function getSaint(date) {
+  const formattedDate = date.format("MM/DD");
+  const url = `https://www.vaticannews.va/es/santos/${formattedDate}.html`;
 
+  const { data } = await axios.get(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0"
+      }
+    });
+
+  const $ = cheerio.load(data);
+
+  return $(".section__head").first().text().trim();
+}
 
 async function getContent(date) {
   const formattedDate = date.format("D-M-YYYY");
@@ -26,7 +39,7 @@ export async function getReadings(date = mexicoNow()) {
 
     const result = {
       date: formatSpanishDate(date),
-      title: $("h1").first().text().trim(),
+      title: await getSaint(date),
       readings: []
     };
 
