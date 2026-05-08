@@ -4,18 +4,25 @@ import dayjs from "dayjs";
 import { formatSpanishDate, mexicoNow } from "../utils/date.js";
 import { buildReference } from "../utils/getBookAbbreviation.js"; 
 
-export async function getReadings(date = mexicoNow()) {
-  const formattedDate = date.format("D-M-YYYY"); // 👈 formato clave
-  const url = `https://www.dominicos.org/predicacion/evangelio-del-dia/${formattedDate}/`;
 
-  try {
-    const { data } = await axios.get(url, {
+
+async function getContent(date) {
+  const formattedDate = date.format("D-M-YYYY");
+  const url = date.day() != 0 ? `https://www.dominicos.org/predicacion/evangelio-del-dia/${formattedDate}/`
+                                 : `https://www.dominicos.org/predicacion/homilia/${formattedDate}/lecturas/`;
+
+  const { data } = await axios.get(url, {
       headers: {
         "User-Agent": "Mozilla/5.0"
       }
     });
 
-    const $ = cheerio.load(data);
+  return cheerio.load(data);
+}
+
+export async function getReadings(date = mexicoNow()) {
+  try {
+    const $ = await getContent(date);
 
     const result = {
       date: formatSpanishDate(date),
@@ -29,7 +36,7 @@ export async function getReadings(date = mexicoNow()) {
     let currentReference = null;
     let currentResp = null;
 
-    const $content = $(".contenido-dia");
+    const $content = date.day() != 0 ? $(".contenido-dia") : $(".contenido-homilia");
 
     // eliminar divs no deseados
     $content.find("div").remove();
@@ -55,6 +62,8 @@ export async function getReadings(date = mexicoNow()) {
           currentSection = "first_reading";
         } else if (text.toLowerCase().includes("salmo")) {
           currentSection = "psalm";
+        } else if (text.toLowerCase().includes("segunda lectura")) {
+          currentSection = "second_reading";
         } else if (text.toLowerCase().includes("evangelio del")) {
           currentSection = "gospel";
         } else {
