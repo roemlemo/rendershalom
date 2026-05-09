@@ -13,5 +13,23 @@ Esperanza nuestra, míranos con compasión, enséñanos a ir continuamente a Jes
 
 Así, Madre Santísima, con la paz de Dios en la conciencia, con nuestros corazones libres de mal y de odios, podremos llevar a todos la verdadera alegría y la verdadera paz, que vienen de tu Hijo, nuestro Señor Jesucristo, que con Dios Padre y con el Espíritu Santo, vive y reina por los siglos de los siglos.
 
+Amén.`,
+
+    "osjo-001": `🕊️Oh, glorioso San José, esposo de María y protector de los trabajadores. Tú que conociste el cansancio de la jornada y la satisfacción del pan ganado con honradez, vuelvo hoy mi mirada hacia ti. 🌿
+
+🕊️Tú que cuidaste con amor a Jesús y te aseguraste de que nada le faltara, intercede por mí ante el Padre. En este momento de incertidumbre, te pido que guíes mis pasos hacia una oportunidad laboral digna, estable y justa. 🌿
+
+🕊️Ilumina mi mente para reconocer las puertas que se abren, fortalece mi ánimo para no desmayar ante las dificultades, y pon en mi boca las palabras adecuadas frente a quienes me entrevisten. Que el trabajo que encuentre no solo cubra mis necesidades materiales, sino que sea un espacio para poner mis talentos al servicio de los demás. 🌿
+
+🕊️Bajo tu amparo pongo mi currículum, mis esperanzas y mi familia. Enséñame a confiar en la Providencia Divina como tú lo hiciste en el taller de Nazaret. 🌿
+
+Amén.`,
+
+    "osmaca-001": `¡Oh! glorioso soldado Romano, que fuiste de Dios conferido a cumplir el don de la caridad.
+
+Por las pruebas más grandes a que fuiste sometido por el Señor, yo te pido de todo corazón que combatas la miseria de mi casa, que la caridad de tu Alma me siga por dondequiera que vaya. Y me de suerte en mis negocios.
+
+¡Oh! San Martin Caballero del Señor fiel Misionero, librame de todo mal. Para que nunca me falte Salud, Trabajo y Sustento.
+
 Amén.`
 };

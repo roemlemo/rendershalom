@@ -2,6 +2,7 @@ import express from "express";
 import dayjs from "dayjs";
 import { getReadings } from "./services/scraper.js";
 import { prayers } from "./utils/prayers.js";
+import { prayersContent } from "./utils/prayersContent.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,6 +31,14 @@ app.get("/readings/:date", async (req, res) => {
 app.get("/prayers/all", async (req, res) => {
   try {
     res.json(prayers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/prayers/content/:id", async (req, res) => {
+  try {
+    res.json(prayersContent[req.params.id]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
