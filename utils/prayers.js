@@ -8,14 +8,14 @@ export const prayers = {
         },
         {
             id: "osjo-001", 
-            title: "Oración a San José",
-            description: "Patrón de la Iglesia Universal y protector de las familias.",
+            title: "Oración a San José Obrero",
+            description: "Pide una oportunidad laboral digna, estable y justa.",
             imageUrl: "https://imgs.search.brave.com/5Jr8sySUsfdUeFKOUIwZpctj_kvCHKazPOwTmWNkuJA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2xhcmluLmNvbS9p/bWcvMjAyMy8wNC8x/Mi9YT2dOaW0wS01f/NzIweDBfXzEuanBn"
         },
         {
             id: "osmaca-001", 
             title: "Oración a San Martín Caballero",
-            description: "Protección, fortaleza y valentía en cada paso del camino.",
+            description: "Encomienda tus negocios para que nunca te falte salud, trabajo y sustento.",
             imageUrl: "https://imgs.search.brave.com/IDLZjI2fe6B5renHkQ5aO5l-32lw6UcV88eA5SzejU8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYWJs/ZW1vc2RlcmVsaWdp/b24uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE3LzEyL3Nh/bi1tYXJ0aW4tY2Fi/YWxsZXJvLTExLmpw/Zw"
         }
     ]
