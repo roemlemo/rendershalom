@@ -28,7 +28,7 @@ export const prayers = {
             id: "ogcrap-001", 
             title: "Credo de los Apóstoles",
             description: "Declara tu intención de seguir a Jesucristo como Señor y Salvador",
-            imageUrl: "https://imgs.search.brave.com/4TXVr55OF534XIfF0nzeT8R-KBAL2rsY2KHkLX6tal4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA3LzA4LzMwLzQ5/LzM2MF9GXzcwODMw/NDkyN19mdGtwSm15/UVdUSHdjSkZYY2dw/aG03TVZaNlJtRXZz/aS5qcGc"
+            imageUrl: "https://imgs.search.brave.com/iHqWH_LNFxMOGYcNnRUnPWAId48k4drG-pBN6lqwZzI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTM4/MTMzNTEyL2VzL2Zv/dG8vc3RhaW5lZC1n/bGFzcy1pbi1zYWlu/dC1ob25vciVDMyVB/OS1kZXlsYXUtY2h1/cmNoLXRoZS1sYXN0/LXN1cHBlci5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9UFhj/ZnlpZGo0alNMMWZy/Zkl5dFpwTnA4V05Y/b3k3TEFPQnBEMlht/VDlTaz0"
         }
     ]
 };

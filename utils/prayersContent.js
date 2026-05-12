@@ -35,13 +35,13 @@ Amén.`,
 
     "ogacco-001": `Señor mío Jesucristo, Dios y hombre verdadero, me pesa de todo corazón de haber pecado, porque he merecido el infierno y he perdido el cielo, pero sobre todo porque te ofendí a ti, que eres bondad infinita y a quien amo sobre todas las cosas.
     
-    Propongo firmemente, con tu gracia, enmendar y evitar las ocasiones próximas de pecado, confesarme y cumplir la penitencia. Confío en que me perdonarás, por tu infinita misericordia.
+Propongo firmemente, con tu gracia, enmendar y evitar las ocasiones próximas de pecado, confesarme y cumplir la penitencia. Confío en que me perdonarás, por tu infinita misericordia.
 
-    Amén.`,
+Amén.`,
 
     "ogcrap-001": `Creo en Dios, Padre todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, nuestro Señor, que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a los vivos y a los muertos.
     
-    Creo en el Espíritu Santo, la santa Iglesia católica, la Comunión de los Santos, el perdón de los pecados, la resurrección de la carne y la vida eterna.
+Creo en el Espíritu Santo, la santa Iglesia católica, la Comunión de los Santos, el perdón de los pecados, la resurrección de la carne y la vida eterna.
     
-    Amén.`
+Amén.`
 };
