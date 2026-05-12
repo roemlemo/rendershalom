@@ -17,6 +17,18 @@ export const prayers = {
             title: "Oración a San Martín Caballero",
             description: "Encomienda tus negocios para que nunca te falte salud, trabajo y sustento.",
             imageUrl: "https://imgs.search.brave.com/IDLZjI2fe6B5renHkQ5aO5l-32lw6UcV88eA5SzejU8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYWJs/ZW1vc2RlcmVsaWdp/b24uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE3LzEyL3Nh/bi1tYXJ0aW4tY2Fi/YWxsZXJvLTExLmpw/Zw"
+        },
+        {
+            id: "ogacco-001", 
+            title: "Acto de Cotricción",
+            description: "Reconcíliate y proponte evitar el pecado",
+            imageUrl: "https://imgs.search.brave.com/uD_mVcP3_uCy8TxmLiJvmPg63UytSXfuhnHYN7hRtBk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFPUFFMeG9uK0wu/anBn"
+        },
+        {
+            id: "ogcrap-001", 
+            title: "Credo de los Apóstoles",
+            description: "Declara tu intención de seguir a Jesucristo como Señor y Salvador",
+            imageUrl: "https://imgs.search.brave.com/4TXVr55OF534XIfF0nzeT8R-KBAL2rsY2KHkLX6tal4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA3LzA4LzMwLzQ5/LzM2MF9GXzcwODMw/NDkyN19mdGtwSm15/UVdUSHdjSkZYY2dw/aG03TVZaNlJtRXZz/aS5qcGc"
         }
     ]
 };
