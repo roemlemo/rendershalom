@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { getReadings } from "./services/scraper.js";
 import { prayers } from "./utils/prayers.js";
 import { prayersContent } from "./utils/prayersContent.js";
+import fs from "fs"; 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -41,6 +42,21 @@ app.get("/prayers/content/:id", async (req, res) => {
     res.json(prayersContent[req.params.id]);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/metadata", async (req, res) => {
+  try {
+    const data = fs.readFileSync(
+      `./metadata/versions.json`,
+      "utf-8"
+    );
+
+    res.json(JSON.parse(data));
+  } catch {
+    res.status(404).json({
+      error: 'Metadata not found'
+    });
   }
 });
 
