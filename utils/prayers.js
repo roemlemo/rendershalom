@@ -3,13 +3,13 @@ export const prayers = {
         {
             id: "ovima-001", 
             title: "Oración a la Virgen María",
-            description: "Encomienda tu día y tus intenciones a nuestra Madre.",
+            description: "Encomienda tu día y tus intenciones a nuestra Madre",
             imageUrl: "https://imgs.search.brave.com/5osM33q_YL3I6ZdFNu8YQ4CneyvxOf2EwN8ct_e1-uc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXNk/ZWxhZmUubXgvd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMTIv/dmlyZ2VuLWRlLWd1/YWRhbHVwZS5qcGVn"
         },
         {
             id: "osjo-001", 
             title: "Oración a San José Obrero",
-            description: "Pide una oportunidad laboral digna, estable y justa.",
+            description: "Pide una oportunidad laboral digna, estable y justa",
             imageUrl: "https://imgs.search.brave.com/5Jr8sySUsfdUeFKOUIwZpctj_kvCHKazPOwTmWNkuJA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2xhcmluLmNvbS9p/bWcvMjAyMy8wNC8x/Mi9YT2dOaW0wS01f/NzIweDBfXzEuanBn"
         },
         {
@@ -42,6 +42,11 @@ export const prayers = {
             description: "Alabanza pronunciada por la Virgen María durante su visita a su prima Isabel",
             imageUrl: "https://imgs.search.brave.com/_HJzad_zMEuZg_JtW_IcqsX41QD09EihM0UbooGK1Qk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9hL2E4L0Rv/bWVuaWNvX2doaXJs/YW5kYWlvJTJDX3Zp/c2l0YXppb25lJTJD/XzE0OTElMkNfZGFf/Y2FwcGVsbGFfZGlf/bG9yZW56b190b3Ju/YWJ1b25pX2luX3Mu/bS5fbWFkZGFsZW5h/X2RlJTI3X3Bhenpp/X2FfZmklMkNfMDIu/SlBHLzEyODBweC1E/b21lbmljb19naGly/bGFuZGFpbyUyQ192/aXNpdGF6aW9uZSUy/Q18xNDkxJTJDX2Rh/X2NhcHBlbGxhX2Rp/X2xvcmVuem9fdG9y/bmFidW9uaV9pbl9z/Lm0uX21hZGRhbGVu/YV9kZSUyN19wYXp6/aV9hX2ZpJTJDXzAy/LkpQRw"
         },
-
+        {
+            id: "ovima-002", 
+            title: "Consagración del hogar a la Virgen María",
+            description: "Encomienda tu hogar y las personas que lo habitan a nuestra Madre",
+            imageUrl: "https://imgs.search.brave.com/5osM33q_YL3I6ZdFNu8YQ4CneyvxOf2EwN8ct_e1-uc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXNk/ZWxhZmUubXgvd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMTIv/dmlyZ2VuLWRlLWd1/YWRhbHVwZS5qcGVn"
+        },
     ]
 };
