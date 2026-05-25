@@ -61,5 +61,25 @@ Desde ahora me felicitarán todas las generaciones, porque el Poderoso ha hecho 
 
 Auxilia a Israel, su siervo, acordándose de la misericordia como lo había prometido a nuestros padres en favor de Abrahán y su descendencia por siempre.
 
+Amén.`,
+
+    "ovima-002": `Virgen Santísima, tú que has sido constituida como Auxiliadora de los cristianos y hogares, hoy te elijo para siempre como Señora y dueña de este hogar, te pido que te dignes demostrar en ella tu poderoso auxilio, preservándola de las enfermedades, del fuego, del rayo, de las inundaciones, de los terremotos, de los ladrones, de las discordias y de los peligros de la guerra.
+
+Bendice y protege a las personas que aquí habitan y concédeles la paz, una gran fé, verdadero amor a Dios y al prójimo, paciencia en las penas, esperanza en la vida eterna, facilidades en el trabajo, empleo, estudio, la gracia de evitar los malos ejemplos, el vicio, el pecado, la condenación eterna y todas las demás desgracias y accidentes.
+
+Amén.`,
+
+    "osmaca-002": `Glorioso San Martín Caballero, protector de quienes trabajan y luchan cada día por salir adelante, hoy pongo en tus manos esta nueva semana.
+
+Bendice mi hogar, mi trabajo, mi negocio, mis proyectos, y cada esfuerzo que hago para sacar adelante a mi familia.
+
+Abre caminos de prosperidad, de abundancia, de oportunidades y de bendición económica.
+
+Aleja de nosotros las malas rachas, las pérdidas, las deudas difíciles y todo aquello que robe nuestra tranquilidad.
+
+San Martín Caballero, así como compartiste con generosidad y fe, enséñanos también a confiar en que Dios nunca abandona a quienes luchan con honestidad y esperanza.
+
+Que esta semana esté llena de puertas abiertas, de buenas noticias, de trabajo, de salud y de la providencia de Dios en nuestro hogar.
+
 Amén.`
 };
