@@ -4,6 +4,7 @@ import { getReadings } from "./services/scraper.js";
 import { prayers } from "./utils/prayers.js";
 import { prayersContent } from "./utils/prayersContent.js";
 import fs from "fs"; 
+import { songs } from "./utils/songs.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +41,14 @@ app.get("/prayers/all", async (req, res) => {
 app.get("/prayers/content/:id", async (req, res) => {
   try {
     res.json(prayersContent[req.params.id]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/songs/all", async (req, res) => {
+  try {
+    res.json(songs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
