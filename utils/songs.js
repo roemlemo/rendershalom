@@ -4,7 +4,7 @@ export const songs = {
       id: "1",
       title: "Pescador de Hombres",
       artist: "Cesáreo Gabaráin",
-      url: null,
+      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       duration: "4:12"
     },
 
