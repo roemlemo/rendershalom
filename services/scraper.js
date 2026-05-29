@@ -72,11 +72,10 @@ export async function getReadingsAlt(date) {
     }
   });
 
-  const readings = await Promise.all(links.map(async (item) => {
-    return await getReadingContent(item);
+  await Promise.all(links.map(async (item) => {
+    const reading = await getReadingContent(item);
+    result.readings.push(reading);
   }));
-
-  result.readings.push(readings);
 
   return result;
 }
