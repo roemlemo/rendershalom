@@ -38,66 +38,38 @@ export function buildReference(title) {
     .split("R/.")[0]
     .trim();
 
-  const selection = parseSelections(cleanedTitle);
+  // Caso normal: Jn 3, 16-21
+  const match = cleanedTitle.match(
+    /(\d+)\s*,\s*([\dA-Za-z\-–\.\,\s]+)/
+  );
 
-  // Caso especial: Salmo 95, Sal 117, etc.
-  if (
-    selection.length === 0 &&
-    ["Sal", "Salmo", "Salmos"].includes(bookData.abbreviation)
-  ) {
-    const match = cleanedTitle.match(/(\d+)/);
-
-    if (match) {
-      selection.push({
+  if (match) {
+    return {
+      ...bookData,
+      reference: {
         chapter: Number(match[1]),
+        verses: cleanVerses(match[2])
+      }
+    };
+  }
+
+  // Caso Salmo 95
+  const psalmMatch = cleanedTitle.match(/(\d+)/);
+
+  if (psalmMatch) {
+    return {
+      ...bookData,
+      reference: {
+        chapter: Number(psalmMatch[1]),
         verses: ""
-      });
-    }
+      }
+    };
   }
 
   return {
     ...bookData,
-    selection
+    reference: null
   };
-}
-
-function parseSelections(text) {
-
-  const selection = [];
-
-  // Formato normal:
-  // Jn 3, 16-21
-  // Heb 4, 14-16; 5, 7-9
-
-  const regex = /(\d+)\s*,\s*([^;]+)/g;
-
-  let match;
-
-  while ((match = regex.exec(text)) !== null) {
-
-    selection.push({
-      chapter: Number(match[1]),
-      verses: cleanVerses(match[2])
-    });
-  }
-
-  if (selection.length > 0) {
-    return selection;
-  }
-
-  // Formato de salmo:
-  // Sal 95
-
-  const psalmMatch = text.match(/(\d+)/);
-
-  if (psalmMatch) {
-    selection.push({
-      chapter: Number(psalmMatch[1]),
-      verses: ""
-    });
-  }
-
-  return selection;
 }
 
 function cleanVerses(text = "") {
