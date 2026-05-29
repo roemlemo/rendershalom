@@ -38,17 +38,17 @@ export function buildReference(title) {
     .split("R/.")[0]
     .trim();
 
-  const reference = parseSelections(cleanedTitle);
+  const selection = parseSelections(cleanedTitle);
 
   // Caso especial: Salmo 95, Sal 117, etc.
   if (
-    reference.length === 0 &&
+    selection.length === 0 &&
     ["Sal", "Salmo", "Salmos"].includes(bookData.abbreviation)
   ) {
     const match = cleanedTitle.match(/(\d+)/);
 
     if (match) {
-      reference.push({
+      selection.push({
         chapter: Number(match[1]),
         verses: ""
       });
@@ -57,7 +57,7 @@ export function buildReference(title) {
 
   return {
     ...bookData,
-    reference
+    selection
   };
 }
 
