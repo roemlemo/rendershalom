@@ -46,10 +46,8 @@ export function buildReference(title) {
   if (match) {
     return {
       ...bookData,
-      reference: {
-        chapter: Number(match[1]),
-        verses: cleanVerses(match[2])
-      }
+      chapter: Number(match[1]),
+      verses: cleanVerses(match[2])
     };
   }
 
@@ -59,16 +57,15 @@ export function buildReference(title) {
   if (psalmMatch) {
     return {
       ...bookData,
-      reference: {
-        chapter: Number(psalmMatch[1]),
-        verses: ""
-      }
+      chapter: Number(psalmMatch[1]),
+      verses: ""
     };
   }
 
   return {
     ...bookData,
-    reference: null
+    chapter: 0,
+    verses: ""
   };
 }
 
