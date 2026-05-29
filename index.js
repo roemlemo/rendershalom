@@ -1,6 +1,6 @@
 import express from "express";
 import dayjs from "dayjs";
-import { getReadings } from "./services/scraper.js";
+import { getReadingsAlt } from "./services/scraper.js";
 import { prayers } from "./utils/prayers.js";
 import { prayersContent } from "./utils/prayersContent.js";
 import fs from "fs"; 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 // Endpoint: hoy
 app.get("/readings/today", async (req, res) => {
   try {
-    const data = await getReadings(dayjs());
+    const data = await getReadingsAlt(dayjs());
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });

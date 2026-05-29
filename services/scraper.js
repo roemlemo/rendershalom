@@ -2,7 +2,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import dayjs from "dayjs";
 import { formatSpanishDate, mexicoNow } from "../utils/date.js";
-import { buildReference } from "../utils/getBookAbbreviation.js"; 
+import { buildReference } from "../utils/getBookAbbreviation.js";
 
 async function getSaint(date) {
   const formattedDate = date.format("MM/DD");
@@ -18,6 +18,119 @@ async function getSaint(date) {
 
   return $(".section__head").first().text().trim();
 }
+
+export async function getReadingsAlt(date) {
+  const formattedDate = date.format("DD-MM-YYYY");
+  const url = `https://www.evangelizacion.org.mx/lecturas/primera-lectura/${formattedDate}`;
+
+  const { data } = await axios.get(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0"
+      }
+    });
+
+  const $ = cheerio.load(data);
+
+  var color = "";
+  
+  $('#tag-container').find("div").each((i, el) => {
+    const text = $(el).text().trim();
+
+    if (text.includes("Color")) {
+      color = text.replace("Color: ", "");
+    }
+  });
+
+  const stringDate = $('#fecha-badge').text().trim();
+
+  const title = $('#num-lecturas').text().trim() + ' ' + $('#text-lecturas').text().trim();
+
+  const currentTitle = $('#subtitulo-contenido').text().trim();
+
+  const first_reading = {
+    type: "first_reading",
+    reference: buildReference(currentTitle),
+    title: currentTitle, 
+    resp: null,
+    text: $('#contenido-principal').text().trim()
+  }
+
+  const result = {
+    color: color,
+    date: stringDate,
+    title: title,
+    readings: [
+      first_reading
+    ]
+  };
+
+  const links = [];
+  $('#acordeon-lecturas').find('.btn-lectura-simple').each((index, element) => {
+    const href = $(element).attr('href').replace('#titulo-contenido', '');
+    if (href && href != url) {
+      links.push(href);
+    }
+  });
+
+  const readings = await Promise.all(links.map(async (item) => {
+    return await getReadingContent(item);
+  }));
+
+  result.readings.push(readings);
+
+  return result;
+}
+
+async function getReadingContent(url) {
+  const { data } = await axios.get(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0"
+      }
+    });
+
+  const $ = cheerio.load(data);
+
+  const currentTitle = $('#titulo-contenido').text().trim();
+  const currentSubtitle = $('#subtitulo-contenido').text().trim();
+
+  var type = "";
+  var resp = null;
+
+  const content = $('#contenido-principal');
+  var text = "";
+  
+  switch (currentTitle.toLocaleLowerCase()) {
+    case "primera lectura":
+      type = "first_reading";
+      text = content.text().trim();
+      break;
+    case "salmo":
+      type = "psalm";
+      resp = content.find('h5').first().text().trim();
+      content.find('h5').remove();
+      text = content.text().trim();
+      break;
+    case "segunda lectura":
+      type = "second_reading";
+      text = content.text().trim();
+      break;
+    default:
+      type = "gospel";
+      text = content.text().trim();
+      break;
+  }
+
+  const reading = {
+    type: type,
+    reference: buildReference(currentSubtitle),
+    title: currentSubtitle, 
+    resp: resp,
+    text: text
+  }
+
+  return reading;
+}
+
 
 async function getContent(date) {
   const formattedDate = date.format("D-M-YYYY");
