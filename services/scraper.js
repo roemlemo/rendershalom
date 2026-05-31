@@ -52,7 +52,7 @@ export async function getReadingsAlt(date = mexicoNow()) {
     reference: buildReference(currentTitle),
     title: currentTitle, 
     resp: null,
-    text: $('#contenido-principal').text().trim()
+    text: $('#contenido-principal').html().replace(/<br\s*\/?>/gi, '\n').trim()
   }
 
   const result = {
@@ -101,21 +101,21 @@ async function getReadingContent(url) {
   switch (currentTitle.toLocaleLowerCase()) {
     case "primera lectura":
       type = "first_reading";
-      text = content.text().trim();
+      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim()
       break;
     case "salmo":
       type = "psalm";
-      resp = content.find('h5').first().text().trim();
+      resp = content.find('h5').first().text().replace("R.", "").trim();
       content.find('h5').remove();
-      text = content.text().trim();
+      text = content.text().replace("R.", "R.\n").trim();
       break;
     case "segunda lectura":
       type = "second_reading";
-      text = content.text().trim();
+      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim();
       break;
     default:
       type = "gospel";
-      text = content.text().trim();
+      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim()
       break;
   }
 
