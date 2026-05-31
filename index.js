@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 // Endpoint: hoy
 app.get("/readings/today", async (req, res) => {
   try {
-    const data = await getReadingsAlt(dayjs());
+    const data = await getReadingsAlt();
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });

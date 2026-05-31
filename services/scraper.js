@@ -19,7 +19,7 @@ async function getSaint(date) {
   return $(".section__head").first().text().trim();
 }
 
-export async function getReadingsAlt(date) {
+export async function getReadingsAlt(date = mexicoNow()) {
   const formattedDate = date.format("DD-MM-YYYY");
   const url = `https://www.evangelizacion.org.mx/lecturas/primera-lectura/${formattedDate}`;
 
@@ -41,7 +41,7 @@ export async function getReadingsAlt(date) {
     }
   });
 
-  const stringDate = $('#fecha-badge').text().trim();
+  const stringDate = formatSpanishDate(date);
 
   const title = $('#num-lecturas').text().trim() + ' ' + $('#text-lecturas').text().trim();
 

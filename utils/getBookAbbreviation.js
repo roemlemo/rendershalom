@@ -36,18 +36,18 @@ export function buildReference(title) {
 
   const cleanedTitle = title
     .split("R/.")[0]
+    .replace(bookData.book, "")
     .trim();
 
-  // Caso normal: Jn 3, 16-21
   const match = cleanedTitle.match(
-    /(\d+)\s*,\s*([\dA-Za-z\-–\.\,\s]+)/
+    /(\d+)(\,|\s)/
   );
 
   if (match) {
     return {
       ...bookData,
       chapter: Number(match[1]),
-      verses: cleanVerses(match[2])
+      verses: cleanVerses(cleanedTitle.replace(match[1], ""))
     };
   }
 
@@ -71,7 +71,6 @@ export function buildReference(title) {
 
 function cleanVerses(text = "") {
   return text
-    .replace(/\s+/g, " ")
+    .replace(/(\,)/, "")
     .trim()
-    .replace(/\.$/, "");
 }
