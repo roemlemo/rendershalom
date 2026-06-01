@@ -106,7 +106,7 @@ async function getReadingContent(url) {
       type = "psalm";
       resp = content.find('h5').first().text().replace("R.", "").trim();
       content.find('h5').remove();
-      text = content.text().replace(/([\n\r]){2,}R./gi, '\nR.').replace(/([\n\r]){3,}/gi, '\n\n').trim();
+      text = content.text().replace(/\s*\n\s*/gi, '\n').replace(/\n*R\.\n*/g, '\nR.\n\n').trim();
       break;
     case "segunda lectura":
       type = "second_reading";
