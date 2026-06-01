@@ -52,7 +52,7 @@ export async function getReadingsAlt(date = mexicoNow()) {
     reference: buildReference(currentTitle),
     title: currentTitle, 
     resp: null,
-    text: $('#contenido-principal').html().replace(/<br\s*\/?>/gi, '\n').trim()
+    text: $('#contenido-principal').html().replace(/(<br[^>]*>\s*){2,}/gi, '\n\n').trim()
   }
 
   const result = {
@@ -96,26 +96,23 @@ async function getReadingContent(url) {
   var resp = null;
 
   const content = $('#contenido-principal');
-  var text = "";
-  
+  var text = content.html().replace(/(<br[^>]*>\s*){2,}/gi, '\n\n').trim()
+
   switch (currentTitle.toLocaleLowerCase()) {
     case "primera lectura":
       type = "first_reading";
-      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim()
       break;
     case "salmo":
       type = "psalm";
       resp = content.find('h5').first().text().replace("R.", "").trim();
       content.find('h5').remove();
-      text = content.text().replace("R.", "R.\n").trim();
+      text = content.text().replace(/([\n\r]){2,}R./gi, '\nR.').replace(/([\n\r]){3,}/gi, '\n\n').trim();
       break;
     case "segunda lectura":
       type = "second_reading";
-      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim();
       break;
     default:
       type = "gospel";
-      text = content.html().replace(/<br\s*\/?>/gi, '\n').trim()
       break;
   }
 
