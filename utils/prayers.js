@@ -52,7 +52,13 @@ export const prayers = {
             id: "osmaca-002", 
             title: "Oración milagrosa a San Martín Caballero",
             description: "Encomienda una nueva semana para que nunca te falte salud, trabajo y sustento",
-            imageUrl: "https://imgs.search.brave.com/IDLZjI2fe6B5renHkQ5aO5l-32lw6UcV88eA5SzejU8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYWJs/ZW1vc2RlcmVsaWdp/b24uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE3LzEyL3Nh/bi1tYXJ0aW4tY2Fi/YWxsZXJvLTExLmpw/Zw"
+            imageUrl: "https://res.cloudinary.com/dujwpfuml/image/upload/v1780703632/san-martin-caballero_qc1zvk.png"
         },
+        {
+            id: "osbe-001", 
+            title: "Oración a San Benito",
+            description: "Para alejar los malos espíritus",
+            imageUrl: "https://res.cloudinary.com/dujwpfuml/image/upload/v1780703632/san-benito_imnlt3.png"
+        }
     ]
 };

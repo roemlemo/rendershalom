@@ -81,5 +81,15 @@ San Martín Caballero, así como compartiste con generosidad y fe, enséñanos t
 
 Que esta semana esté llena de puertas abiertas, de buenas noticias, de trabajo, de salud y de la providencia de Dios en nuestro hogar.
 
-Amén.`
+Amén.`,
+
+    "osbe-001": `Santísimo confesor del Señor; Padre y jefe de los monjes, interceded por nuestra santidad, por nuestra salud del alma, cuerpo y mente.
+
+Destierra de nuestra vida, de nuestra casa, las asechanzas del maligno espíritu. Líbranos de funestas herejías, de malas lenguas y hechicerías.
+
+ Pídele al Señor, remedie nuestras necesidades espirituales, y corporales. Pídele también por el progreso de la santa Iglesia Católica; y porque mi alma no muera en pecado mortal, para que así confiado en Tu poderosa intercesión, pueda algún día en el cielo, cantar las eternas alabanzas.
+ 
+ Amén.
+
+Rezar tres Padrenuestros, Avemarías y Glorias.`
 };
