@@ -91,5 +91,27 @@ Destierra de nuestra vida, de nuestra casa, las asechanzas del maligno espíritu
  
  Amén.
 
-Rezar tres Padrenuestros, Avemarías y Glorias.`
+Rezar tres Padrenuestros, Avemarías y Glorias.`,
+
+    "oscje-001": `Oh Divino Jesús que dijiste: «Pedid y recibiréis; buscad y encontraréis; llamad y se os abrirá; porque todo el que pide recibe, y el que busca encuentra, y a quien llama se le abre». Mírame postrado a tus plantas suplicándote me concedas una audiencia. Tus palabras me infunden confianza, sobre todo ahora que necesito que me hagas un favor:
+
+(Se ora en silencio pidiendo el favor)
+
+¿A quién he de pedir, sino a Ti, cuyo Corazón es un manantial inagotable de todas las gracias y dones? ¿Dónde he de buscar sino en el tesoro de tu corazón, que contiene todas las riquezas de la clemencia y generosidad divinas? ¿A dónde he de llamar sino a la puerta de ese Corazón Sagrado, a través del cual Dios viene a nosotros, y por medio del cual vamos a Dios?
+
+A Ti acudimos, oh Corazón de Jesús, porque en Ti encontramos consuelo, cuando afligidos y perseguidos pedimos protección; cuando abrumados por el peso de nuestra cruz, buscamos ayuda; cuando la angustia, la enfermedad, la pobreza o el fracaso nos impulsan a buscar una fuerza superior a las fuerzas humanas.
+
+Creo firmemente que puedes concederme la gracia que imploro, porque tu Misericordia no tiene límites y confío en que tu Corazón compasivo encontrará en mis miserias, en mis tribulaciones y en mis angustias, un motivo más para oír mi petición.
+
+Quiero que mi corazón esté lleno de la confianza con que oró el centurión romano en favor de su criado; de la confianza con que oraron las hermanas de Lázaro, los leprosos, los ciegos, los paralíticos que se acercaban a Ti porque sabían que tus oídos y tu Corazón estaban siempre abiertos para oír y remediar sus males.
+
+Sin embargo... dejo en tus manos mi petición, sabiendo que Tú sabes las cosas mejor que yo; y que, si no me concedes esta gracia que te pido, sí me darás en cambio otra que mucho necesita mi alma; y me concederás mirar las cosas, mi situación, mis problemas, mi vida entera, desde otro ángulo, con más espíritu de fe.
+
+Cualquiera que sea tu decisión, nunca dejaré de amarte, adorarte y servirte, oh buen Jesús.
+
+Acepta este acto mío de perfecta adoración y sumisión a lo que decrete tu Corazón misericordioso. Amén.
+
+Padre Nuestro, Ave María, Gloria al Padre.
+
+Sacratísimo Corazón de Jesús, en Vos confío. (3 veces)`
 };

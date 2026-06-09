@@ -59,6 +59,12 @@ export const prayers = {
             title: "Oración a San Benito",
             description: "Para alejar los malos espíritus",
             imageUrl: "https://res.cloudinary.com/dujwpfuml/image/upload/v1780703632/san-benito_imnlt3.png"
+        },
+        {
+            id: "oscje-001", 
+            title: "Oración al Sagrado Corazón de Jesús",
+            description: "Para pedir su favor durante una grave necesidad",
+            imageUrl: "https://res.cloudinary.com/dujwpfuml/image/upload/v1781031083/sagrado-corazon-de-jesus_xki2p2.png"
         }
     ]
 };
